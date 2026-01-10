@@ -21,7 +21,7 @@ jobs:
         run: |
           # Replace these after you see output from "Print schemes"
           xcodebuild \
-            -scheme "Hello World" \
+            -scheme "hello-world" \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
             build
