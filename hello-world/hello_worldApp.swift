@@ -1,17 +1,14 @@
-//
-//  hello_worldApp.swift
-//  hello-world
-//
-//  Created by Rob Hedgpeth on 5/5/22.
-//
-
 import SwiftUI
 
 @main
 struct hello_worldApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+    @StateObject private var services = AppServices.shared
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(services)
         }
     }
 }

@@ -1,29 +1,32 @@
-//
-//  ContentView.swift
-//  hello-world
-//
-//  Created by Rob Hedgpeth on 5/5/22.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject private var services: AppServices
+
     var body: some View {
-        ZStack{
-            Color("Bitrise Purple").ignoresSafeArea()
-            VStack{
-                Image("logo")
-                Text("Hello, Bitrisers!")
-                    .font(.largeTitle)
-                    .foregroundColor(.white)
-                    .padding()
-            }
+        TabView {
+            PaletteListView()
+                .tabItem {
+                    Label("Palette", systemImage: "square.grid.2x2")
+                }
+
+            CameraTabView()
+                .tabItem {
+                    Label("Camera", systemImage: "camera")
+                }
+
+            ExploreView()
+                .tabItem {
+                    Label("Explore", systemImage: "sparkles")
+                }
         }
+        .environment(\.locale, Locale(identifier: services.settingsStore.languageTag))
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(AppServices.shared)
     }
 }
