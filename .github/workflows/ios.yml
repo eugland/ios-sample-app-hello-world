@@ -23,5 +23,5 @@ jobs:
           xcodebuild \
             -scheme "hello-world" \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
+            -destination 'platform=iOS Simulator,name=iPhone 17,OS=latest' \
             build
